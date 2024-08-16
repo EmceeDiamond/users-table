@@ -7,6 +7,8 @@ function App() {
   const [dataState, setDataState] = useState(null);
   const [modalActive, setModalActive] = useState(false);
   const [modalUser, setModalUser] = useState({})
+  const [modalCity, setModalCity] = useState()
+  const [modalAddress, setModalAddress] = useState()
   const [dataFilter, setDataFilter] = useState({
     attribute:"",
     value: "",
@@ -76,8 +78,10 @@ const handleSubmit = async (e) => {
         }
     }
 
-    const openModal = (user) => {
+    const openModal = (user, city, address) => {
       setModalUser(user);
+      setModalCity(city);
+      setModalAddress(address);
       setModalActive(true);
     }
   return (
@@ -112,18 +116,18 @@ const handleSubmit = async (e) => {
           </thead>
           <tbody>
             {dataState!=null && dataState.map((item, index)=>(
-              <tr key={index} onClick={() => openModal(item)}>
+              <tr key={index} onClick={() => openModal(item, item.address.city, item.address.address)}>
                 <td >{item.firstName} {item.lastName} {item.maidenName}</td>
                 <td>{item.age}</td>
                 <td>{item.gender}</td>
                 <td>{item.phone}</td>
-                <td>{item.address.city} {item.address.address}</td>
+                <td>{item.address.city}, {item.address.address}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <ModalUser active={modalActive} setActive={setModalActive} user={modalUser}/>
+      <ModalUser active={modalActive} setActive={setModalActive} user={modalUser} city={modalCity} address={modalAddress}/>
     </div>
   );
 }

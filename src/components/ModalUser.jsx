@@ -1,37 +1,42 @@
 import Modal from "./Modal";
 
 
-export default function ModalUser({active, setActive, user}){
+export default function ModalUser({active, setActive, user, city, address}){
     return(
         <Modal active={active} setActive={setActive}>
             <ul>
                 <li>
-                    <b>ФИО:</b>
+                    <b>ФИО: </b>
                     {user.firstName} {user.lastName}
                 </li>
 
                 <li>
-                    <b>Возраст:</b>
+                    <b>Возраст: </b>
                     {user.age} лет
                 </li>
 
                 <li>
-                    <b>Рост</b>
+                    <b>Адрес: </b>
+                    {city}, {address}
+                </li>
+
+                <li>
+                    <b>Рост: </b>
                     {user.height} см
                 </li>
 
                 <li>
-                    <b>Вес:</b>
+                    <b>Вес: </b>
                     {user.weight} кг 
                 </li>
 
                 <li>
-                    <b>Номер телефона:</b>
+                    <b>Номер телефона: </b>
                     {user.phone}  
                 </li>
                 
                 <li>
-                    <b>Email-адрес:</b>
+                    <b>Email-адрес: </b>
                     {user.email} 
                 </li>
                 
