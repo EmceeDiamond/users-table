@@ -9,6 +9,7 @@ function App() {
   const [modalUser, setModalUser] = useState({})
   const [modalCity, setModalCity] = useState()
   const [modalAddress, setModalAddress] = useState()
+  const [loading, setLoading] = useState(true)
   const [dataFilter, setDataFilter] = useState({
     attribute:"",
     value: "",
@@ -18,6 +19,7 @@ function App() {
   const loadUsers = () => {
       fetchUsers().then(data =>{
         setDataState(data)
+        setLoading(false)
       })
   };
 
@@ -104,6 +106,9 @@ const handleSubmit = async (e) => {
           <button>Поиск</button>
           <button onClick={loadUsers}>Сброс</button>
         </form>
+        {loading ? (
+          <p>Загрузка...</p>
+        ) :(
         <table className='tb'>
           <thead>
             <tr>
@@ -126,9 +131,11 @@ const handleSubmit = async (e) => {
             ))}
           </tbody>
         </table>
+      )}
       </div>
       <ModalUser active={modalActive} setActive={setModalActive} user={modalUser} city={modalCity} address={modalAddress}/>
     </div>
+    
   );
 }
 
