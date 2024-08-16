@@ -16,11 +16,6 @@ export default function ModalUser({active, setActive, user}){
                 </li>
 
                 <li>
-                    <b>Адрес:</b>
-                    {user.address.city}, {user.address.address}
-                </li>
-
-                <li>
                     <b>Рост</b>
                     {user.height} см
                 </li>

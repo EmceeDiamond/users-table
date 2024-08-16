@@ -1,7 +1,6 @@
 import './App.css';
 import { useEffect, useState } from "react";
 import {fetchUsers, filterUsers} from './api/FetchAPI'
-import Modal from './components/Modal';
 import ModalUser from './components/ModalUser';
 
 function App() {
