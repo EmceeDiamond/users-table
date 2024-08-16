@@ -1,6 +1,7 @@
 {
   "name": "task1",
   "version": "0.1.0",
+  "homepage": "https://emceediamond.github.io/users-table/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
